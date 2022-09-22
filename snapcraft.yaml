@@ -31,6 +31,7 @@ apps:
       - upower
     plugs:
       - hardware-observe
+      - bluez
 
   upower:
     command: usr/bin/upower
