@@ -1,0 +1,12 @@
+summary: Smoke test
+
+prepare: |
+  snap install --dangerous "${SNAP}"
+  snap connect upower:hardware-observe
+
+restore: |
+  snap remove upower
+
+execute: |
+  upower -d
+
