@@ -53,6 +53,12 @@ jobs:
         with:
           path: src
 
+      - uses: actions/checkout@v3
+        with:
+          path: src/ci
+	  repository: https://github.com/valentindavid/system-snaps-cicd-tools.git
+	  ref: valentindavid/add-simple-reflash
+
       - name: Provide built snap to test
         env:
           SNAP: ${{ format('{0}/{1}', steps.download.outputs.download-path, needs.build_snap.outputs.snap_name) }}
