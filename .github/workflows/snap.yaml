@@ -53,6 +53,15 @@ jobs:
         with:
           path: src
 
+      - uses: actions/checkout@v3
+        with:
+          repository: snapcore/system-snaps-cicd-tools
+          path: ci
+
+      - name: Copy CI files
+        run: |
+          cp -r ci/lib src/ci
+
       - name: Provide built snap to test
         env:
           SNAP: ${{ format('{0}/{1}', steps.download.outputs.download-path, needs.build_snap.outputs.snap_name) }}
