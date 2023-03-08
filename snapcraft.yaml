@@ -1,5 +1,5 @@
 name: upower
-version: 1.90.0
+adopt-info: upower
 summary: An abstraction for power devices
 description: |
     UPower is an abstraction for enumerating power devices, listening
@@ -43,6 +43,17 @@ layout:
     bind: $SNAP/etc/UPower
 
 parts:
+  upower-copyright:
+    plugin: nil
+    stage-packages:
+      - upower
+      - libupower-glib3
+    stage:
+      - usr/share/doc/libupower-glib3/copyright
+      - usr/share/doc/libupower-glib3/changelog.*
+      - usr/share/doc/upower/copyright
+      - usr/share/doc/upower/changelog.*
+
   upower:
     build-packages:
     - meson
@@ -55,5 +66,10 @@ parts:
     plugin: meson
     meson-parameters:
       - --prefix=/usr
-    source-type: tar
-    source: https://gitlab.freedesktop.org/upower/upower/-/archive/v1.90.0/upower-v1.90.0.tar.bz2
+    source-type: git
+    source-branch: applied/ubuntu/jammy
+    source: https://git.launchpad.net/ubuntu/+source/upower
+    override-pull: |
+      craftctl default
+      version="$(cd "${CRAFT_PART_SRC}"; dpkg-parsechangelog -SVersion)"
+      craftctl set version="${version}"
