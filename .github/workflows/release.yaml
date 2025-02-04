@@ -3,7 +3,7 @@ name: Release snap
 on:
   workflow_dispatch:
     branches:
-      - main
+      - snap-22
 
 jobs:
   build_release:
