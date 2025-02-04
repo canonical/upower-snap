@@ -5,7 +5,7 @@ description: |
     UPower is an abstraction for enumerating power devices, listening
     to device events and querying history and statistics.
 confinement: strict
-base: core22
+base: core24
 
 slots:
   upower-dbus:
@@ -67,7 +67,7 @@ parts:
     meson-parameters:
       - --prefix=/usr
     source-type: git
-    source-branch: applied/ubuntu/jammy
+    source-branch: applied/ubuntu/noble
     source: https://git.launchpad.net/ubuntu/+source/upower
     override-pull: |
       craftctl default
