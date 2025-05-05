@@ -1,10 +1,11 @@
 name: upower
-adopt-info: upower
+version: 1.90.2-1-dev
 summary: An abstraction for power devices
 description: |
     UPower is an abstraction for enumerating power devices, listening
     to device events and querying history and statistics.
 confinement: strict
+grade: stable
 base: core24
 
 slots:
@@ -67,9 +68,5 @@ parts:
     meson-parameters:
       - --prefix=/usr
     source-type: git
-    source-branch: applied/ubuntu/noble
+    source-branch: applied/ubuntu/noble-updates
     source: https://git.launchpad.net/ubuntu/+source/upower
-    override-pull: |
-      craftctl default
-      version="$(cd "${CRAFT_PART_SRC}"; dpkg-parsechangelog -SVersion)"
-      craftctl set version="${version}"
