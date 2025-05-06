@@ -16,3 +16,6 @@ jobs:
           LP_CREDENTIALS: ${{ secrets.LP_CREDENTIALS }}
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         uses: canonical/system-snaps-cicd-tools/action-publish-edge@main
+        with:
+          # TODO: remove this filter when launchpad riscv64 builds are stable
+          architectures: arm64,amd64,armhf
