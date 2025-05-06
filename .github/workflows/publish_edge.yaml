@@ -9,7 +9,7 @@ jobs:
   publish_to_edge:
     # self-hosted runner so we can access launchpad
     runs-on: self-hosted
-    environment: beta
+    environment: store
     steps:
       - name: Publish to edge
         env:

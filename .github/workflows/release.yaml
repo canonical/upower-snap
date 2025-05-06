@@ -8,7 +8,7 @@ on:
 jobs:
   build_release:
     runs-on: self-hosted
-    environment: beta
+    environment: store
     steps:
       - name: Build release
         env:
