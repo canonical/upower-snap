@@ -1,9 +1,9 @@
-snapcraft-version: 8.8.1
-snapcraft-started-at: '2025-05-07T06:24:39.791110Z'
+snapcraft-version: 8.11.2
+snapcraft-started-at: '2025-09-10T12:48:48.577698Z'
 snapcraft-os-release-id: ubuntu
 snapcraft-os-release-version-id: '24.04'
 name: upower
-version: 1.90.2-1
+version: 1.90.2-2
 summary: An abstraction for power devices
 description: |
   UPower is an abstraction for enumerating power devices, listening
@@ -64,7 +64,7 @@ parts:
 architectures:
 - amd64
 image-info:
-  build_url: https://launchpad.net/~snappy-hwe-team/snappy-hwe-snaps/+snap/upower-snap-24/+build/2797230
+  build_url: https://launchpad.net/~snappy-hwe-team/snappy-hwe-snaps/+snap/upower-snap-24/+build/2900923
 build-packages: []
 build-snaps: []
 primed-stage-packages:
