@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_release:
-    runs-on: self-hosted
+    runs-on: [self-hosted, spread-enabled]
     environment: store
     steps:
       - name: Build release
