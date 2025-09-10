@@ -1,5 +1,5 @@
 name: upower
-version: 1.90.2-2
+version: 1.90.2-3-dev
 summary: An abstraction for power devices
 description: |
     UPower is an abstraction for enumerating power devices, listening
