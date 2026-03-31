@@ -1,12 +1,13 @@
 name: upower
-version: 1.90.2-3-dev
+version: 1.91.1-1-dev
 summary: An abstraction for power devices
 description: |
     UPower is an abstraction for enumerating power devices, listening
     to device events and querying history and statistics.
 confinement: strict
-grade: stable
-base: core24
+grade: devel
+base: core26
+build-base: devel
 
 slots:
   upower-dbus:
@@ -58,15 +59,39 @@ parts:
   upower:
     build-packages:
     - meson
-    - libglib2.0-dev
+      #    - libglib2.0-dev
     - xsltproc
     - libgudev-1.0-dev
     - gtk-doc-tools
+    - systemd-dev
+    build-attributes:
+    - enable-patchelf
     stage-packages:
     - libgudev-1.0-0
     plugin: meson
     meson-parameters:
       - --prefix=/usr
     source-type: git
-    source-branch: applied/ubuntu/noble-updates
+    source-branch: applied/ubuntu/resolute-proposed
     source: https://git.launchpad.net/ubuntu/+source/upower
+    prime:
+    - -usr/lib/x86_64-linux-gnu/libBrokenLocale.so.1
+    - -usr/lib/x86_64-linux-gnu/libanl.so.1
+    - -usr/lib/x86_64-linux-gnu/libc_malloc_debug.so.0
+    - -usr/lib/x86_64-linux-gnu/libdl.so.2
+    - -usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+    - -usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.8800.0
+    - -usr/lib/x86_64-linux-gnu/libmemusage.so
+    - -usr/lib/x86_64-linux-gnu/libmvec.so.1
+    - -usr/lib/x86_64-linux-gnu/libnsl.so.1
+    - -usr/lib/x86_64-linux-gnu/libnss_compat.so.2
+    - -usr/lib/x86_64-linux-gnu/libnss_dns.so.2
+    - -usr/lib/x86_64-linux-gnu/libnss_files.so.2
+    - -usr/lib/x86_64-linux-gnu/libnss_hesiod.so.2
+    - -usr/lib/x86_64-linux-gnu/libpcprofile.so
+    - -usr/lib/x86_64-linux-gnu/libpthread.so.0
+    - -usr/lib/x86_64-linux-gnu/libresolv.so.2
+    - -usr/lib/x86_64-linux-gnu/librt.so.1
+    - -usr/lib/x86_64-linux-gnu/libthread_db.so.1
+    - -usr/lib/x86_64-linux-gnu/libutil.so.1
+
