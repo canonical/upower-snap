@@ -59,7 +59,6 @@ parts:
   upower:
     build-packages:
     - meson
-      #    - libglib2.0-dev
     - xsltproc
     - libgudev-1.0-dev
     - gtk-doc-tools
