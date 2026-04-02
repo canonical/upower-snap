@@ -71,7 +71,7 @@ parts:
     meson-parameters:
       - --prefix=/usr
     source-type: git
-    source-branch: applied/ubuntu/resolute-proposed
+    source-branch: applied/ubuntu/resolute
     source: https://git.launchpad.net/ubuntu/+source/upower
     prime:
     - -usr/lib/x86_64-linux-gnu/libBrokenLocale.so.1
