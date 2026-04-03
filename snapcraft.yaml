@@ -63,8 +63,6 @@ parts:
     - libgudev-1.0-dev
     - gtk-doc-tools
     - systemd-dev
-    build-attributes:
-    - enable-patchelf
     stage-packages:
     - libgudev-1.0-0
     plugin: meson
@@ -93,4 +91,3 @@ parts:
     - -usr/lib/x86_64-linux-gnu/librt.so.1
     - -usr/lib/x86_64-linux-gnu/libthread_db.so.1
     - -usr/lib/x86_64-linux-gnu/libutil.so.1
-
