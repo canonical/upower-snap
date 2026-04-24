@@ -1,12 +1,12 @@
 name: upower
-version: 1.90.2-3-dev
+version: 1.91.1-1-dev
 summary: An abstraction for power devices
 description: |
     UPower is an abstraction for enumerating power devices, listening
     to device events and querying history and statistics.
 confinement: strict
 grade: stable
-base: core24
+base: core26
 
 slots:
   upower-dbus:
@@ -58,15 +58,15 @@ parts:
   upower:
     build-packages:
     - meson
-    - libglib2.0-dev
-    - xsltproc
     - libgudev-1.0-dev
-    - gtk-doc-tools
+    - systemd-dev
     stage-packages:
     - libgudev-1.0-0
     plugin: meson
     meson-parameters:
       - --prefix=/usr
+      - -Dgtk-doc=false
+      - -Dman=false
     source-type: git
-    source-branch: applied/ubuntu/noble-updates
+    source-branch: applied/ubuntu/resolute
     source: https://git.launchpad.net/ubuntu/+source/upower
