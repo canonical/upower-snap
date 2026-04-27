@@ -1,5 +1,5 @@
 snapcraft-version: 8.14.5.post106
-snapcraft-started-at: '2026-04-27T20:18:19.862702Z'
+snapcraft-started-at: '2026-04-27T20:19:57.728663Z'
 snapcraft-os-release-id: ubuntu
 snapcraft-os-release-version-id: '26.04'
 name: upower
@@ -63,9 +63,9 @@ parts:
     stage: []
     prime: []
 architectures:
-- amd64
+- armhf
 image-info:
-  build_url: https://launchpad.net/~snappy-hwe-team/+snap/upower-snap-26/+build/3134603
+  build_url: https://launchpad.net/~snappy-hwe-team/+snap/upower-snap-26/+build/3134604
 build-packages: []
 build-snaps: []
 primed-stage-packages:

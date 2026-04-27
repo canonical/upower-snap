@@ -1,14 +1,14 @@
-snapcraft-version: 8.11.2
-snapcraft-started-at: '2025-09-10T12:52:07.897000Z'
+snapcraft-version: 8.14.5.post106
+snapcraft-started-at: '2026-04-27T20:19:12.210302Z'
 snapcraft-os-release-id: ubuntu
-snapcraft-os-release-version-id: '24.04'
+snapcraft-os-release-version-id: '26.04'
 name: upower
-version: 1.90.2-2
+version: 1.91.1-1
 summary: An abstraction for power devices
 description: |
   UPower is an abstraction for enumerating power devices, listening
   to device events and querying history and statistics.
-base: core24
+base: core26
 grade: stable
 confinement: strict
 apps:
@@ -31,12 +31,13 @@ parts:
   upower-copyright:
     plugin: nil
     stage-packages:
-    - libgudev-1.0-0=1:238-5ubuntu1
-    - libimobiledevice6=1.3.0-8.1build3
-    - libplist-2.0-4=2.3.0-1~exp2build2
-    - libupower-glib3=1.90.3-1
-    - libusbmuxd6=2.0.2-4build3
-    - upower=1.90.3-1
+    - libgudev-1.0-0=1:238-7build1
+    - libimobiledevice-1.0-6=1.4.0-1build1
+    - libimobiledevice-glue-1.0-0=1.3.2-2build1
+    - libplist-2.0-4=2.7.0+git20250820-1build1
+    - libupower-glib3=1.91.1-1
+    - libusbmuxd-2.0-7=2.1.1-1
+    - upower=1.91.1-1
     stage:
     - usr/share/doc/libupower-glib3/copyright
     - usr/share/doc/libupower-glib3/changelog.*
@@ -47,27 +48,27 @@ parts:
   upower:
     build-packages:
     - meson
-    - libglib2.0-dev
-    - xsltproc
     - libgudev-1.0-dev
-    - gtk-doc-tools
+    - systemd-dev
     stage-packages:
-    - libgudev-1.0-0=1:238-5ubuntu1
+    - libgudev-1.0-0=1:238-7build1
     plugin: meson
     meson-parameters:
     - --prefix=/usr
+    - -Dgtk-doc=false
+    - -Dman=false
     source-type: git
-    source-branch: applied/ubuntu/noble-updates
+    source-branch: applied/ubuntu/resolute-proposed
     source: https://git.launchpad.net/ubuntu/+source/upower
     stage: []
     prime: []
 architectures:
 - arm64
 image-info:
-  build_url: https://launchpad.net/~snappy-hwe-team/snappy-hwe-snaps/+snap/upower-snap-24/+build/2900922
+  build_url: https://launchpad.net/~snappy-hwe-team/+snap/upower-snap-26/+build/3134602
 build-packages: []
 build-snaps: []
 primed-stage-packages:
-- libgudev-1.0-0=1:238-5ubuntu1
-- libupower-glib3=1.90.3-1
-- upower=1.90.3-1
+- libgudev-1.0-0=1:238-7build1
+- libupower-glib3=1.91.1-1
+- upower=1.91.1-1
