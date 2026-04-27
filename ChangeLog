@@ -1,3 +1,155 @@
+2026-04-27 upower 1.91.1-1
+
+  [ alfonsosanchezbeato <alfonsosanchezbeato@yahoo.es> ]
+  * Update for UC26
+    Merge pull request #10 from nicoharnois/update-uc26
+
+  [ Changes in primed packages ]
+  
+  libgudev-1.0-0 (built from libgudev) updated from 1:238-5ubuntu1 to 1:238-7build1:
+  
+  libupower-glib3, upower (built from upower) updated from 1.90.3-1 to 1.91.1-1:
+  
+    upower (1.91.1-1) unstable; urgency=medium
+  
+      * New upstream version 1.91.1
+      * Drop redundant Priority field
+      * Bump Standards-Version to 4.7.3
+      * Remove devhelp Suggests.
+        As recommended by the Debian GNOME team.
+      * Drop libkvm-dev [kfreebsd-any] Build-Depends.
+        The kfreebsd port has been discontinued in 2023.
+  
+     -- Michael Biebl <biebl@debian.org>  Thu, 12 Feb 2026 16:09:48 +0100
+  
+    upower (1.91.0-1) unstable; urgency=medium
+  
+      * New upstream version 1.91.0
+      * Bump Build-Depends on libglib2.0-dev to (>= 2.76) as per meson.build
+      * Update symbols file for libupower-glib3
+      * Install new etc/UPower/UPower.conf.d/README.md
+      * Drop Rules-Requires-Root: no.
+        It is no longer necessary as "no" is the new default.
+  
+     -- Michael Biebl <biebl@debian.org>  Wed, 26 Nov 2025 23:00:07 +0100
+  
+    upower (1.90.10-1) unstable; urgency=medium
+  
+      * New upstream version 1.90.10
+      * Drop patches, all merged upstream
+      * Update symbols file for libupower-glib3
+  
+     -- Michael Biebl <biebl@debian.org>  Tue, 26 Aug 2025 12:35:14 +0200
+  
+    upower (1.90.9-7) unstable; urgency=medium
+  
+      * Rename debian-branch to debian/latest as per DEP-14
+      * Drop Build-Depends on libgirepository1.0-dev
+  
+     -- Michael Biebl <biebl@debian.org>  Fri, 15 Aug 2025 20:10:51 +0200
+  
+    upower (1.90.9-6) unstable; urgency=medium
+  
+      * autopkgtest: fix comparison of floating point values in upstream
+        integration test.
+        This should fix the test suite failures on i386 due to excessive
+        precision. So make failures fatal again for i386. (Closes: #1050436)
+  
+     -- Michael Biebl <biebl@debian.org>  Sun, 10 Aug 2025 21:01:12 +0200
+  
+    upower (1.90.9-5) unstable; urgency=medium
+  
+      * test_bluetooth_hidpp_mouse: start upower and bluez after the setup of the
+        udev device properties
+  
+     -- Michael Biebl <biebl@debian.org>  Mon, 04 Aug 2025 13:56:49 +0200
+  
+    upower (1.90.9-4) unstable; urgency=medium
+  
+      * Add a few more delays to see if this mitigates test failures on
+        slower/loaded systems
+  
+     -- Michael Biebl <biebl@debian.org>  Fri, 01 Aug 2025 15:27:13 +0200
+  
+    upower (1.90.9-3) unstable; urgency=medium
+  
+      * Another attempt fixing random test failures for test_bluetooth_hidpp_mouse
+  
+     -- Michael Biebl <biebl@debian.org>  Wed, 30 Jul 2025 17:21:04 +0200
+  
+    upower (1.90.9-2) unstable; urgency=medium
+  
+      * autopkgtest: Increase timeout from 300 to 900 secs (Closes: #1109990)
+  
+     -- Michael Biebl <biebl@debian.org>  Sun, 27 Jul 2025 22:59:20 +0200
+  
+    upower (1.90.9-1) unstable; urgency=medium
+  
+      * New upstream version 1.90.9
+  
+     -- Michael Biebl <biebl@debian.org>  Thu, 10 Apr 2025 20:14:42 +0200
+  
+    upower (1.90.8-1) unstable; urgency=medium
+  
+      * New upstream version 1.90.8
+      * Drop patches, merged upstream
+      * Bump Standards-Version to 4.7.2
+  
+     -- Michael Biebl <biebl@debian.org>  Mon, 31 Mar 2025 16:15:49 +0200
+  
+    upower (1.90.7-1) unstable; urgency=medium
+  
+      * New upstream version 1.90.7
+      * Rebase patches
+      * Install new zsh completions
+  
+     -- Michael Biebl <biebl@debian.org>  Thu, 09 Jan 2025 12:32:38 +0100
+  
+    upower (1.90.6-2) unstable; urgency=medium
+  
+      * Replace dependency on dbus with default-dbus-system-bus | dbus-system-bus.
+        This makes it easier to swap in alternative implementations like
+        dbus-broker.
+      * Fix race condition in test_sibling_priority_no_overwrite.
+        Patch cherry-picked from upstream Git. (Closes: #1072748)
+  
+     -- Michael Biebl <biebl@debian.org>  Fri, 27 Sep 2024 00:55:12 +0200
+  
+    upower (1.90.6-1) unstable; urgency=medium
+  
+      * New upstream version 1.90.6
+      * Rebase patches
+      * Enable polkit support.
+        Setting the battery charging threshold utilizes polkit.
+  
+     -- Michael Biebl <biebl@debian.org>  Wed, 25 Sep 2024 13:45:09 +0200
+  
+    upower (1.90.5-1) unstable; urgency=medium
+  
+      * New upstream version 1.90.5
+      * Rebase patches
+      * Update symbols for libupower-glib3.
+        Add new up_exported symbols but mark them as optional, as they are not
+        public API.
+      * Add ${gir:Depends} and ${gir:Provides} to libupower-glib-dev
+      * Add Build-Depends on gir1.2-gobject-2.0-dev and gir1.2-gio-2.0-dev as
+        suggested by dh_girepository
+      * Request standard Salsa-CI but disable test-crossbuild-arm64
+  
+     -- Michael Biebl <biebl@debian.org>  Tue, 27 Aug 2024 17:18:24 +0200
+  
+    upower (1.90.4-1) unstable; urgency=medium
+  
+      [ Jeremy Bícha ]
+      * Update debian/watch
+  
+      [ Michael Biebl ]
+      * New upstream version 1.90.4
+      * Fix possible race condition in test_bluetooth_hidpp_mouse
+        (Closes: #1069789)
+  
+     -- Michael Biebl <biebl@debian.org>  Sat, 17 Aug 2024 21:10:27 +0200
+  
 2025-09-10 upower 1.90.2-2
 
   [ Changes in primed packages ]
