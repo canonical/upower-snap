@@ -68,5 +68,5 @@ parts:
       - -Dgtk-doc=false
       - -Dman=false
     source-type: git
-    source-branch: applied/ubuntu/resolute
+    source-branch: applied/ubuntu/resolute-proposed
     source: https://git.launchpad.net/ubuntu/+source/upower
