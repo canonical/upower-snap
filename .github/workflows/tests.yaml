@@ -15,3 +15,4 @@ jobs:
         env:
           LP_CREDENTIALS: ${{ secrets.LP_CREDENTIALS }}
         uses: canonical/system-snaps-cicd-tools/action-test@main
+        spread_suites: "openstack:"
